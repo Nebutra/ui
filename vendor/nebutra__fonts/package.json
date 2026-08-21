@@ -1,0 +1,49 @@
+{
+  "name": "@nebutra/fonts",
+  "version": "0.1.1",
+  "description": "Self-hosted OSS font registry — build-time next/font faces + a name→CSS-var resolver so theme / DESIGN.md fonts render with zero runtime external requests",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./registry": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./next": {
+      "types": "./src/next.ts",
+      "import": "./src/next.ts",
+      "default": "./src/next.ts"
+    },
+    "./next/cjk": {
+      "types": "./src/next-cjk.ts",
+      "import": "./src/next-cjk.ts",
+      "default": "./src/next-cjk.ts"
+    },
+    "./cjk": {
+      "types": "./dist/generated/index.d.ts",
+      "import": "./dist/generated/index.js",
+      "default": "./dist/generated/index.js"
+    },
+    "./cjk.css": "./generated/vivo-sans-cn.css",
+    "./generated/*": "./generated/*"
+  },
+  "files": [
+    "dist",
+    "src",
+    "generated/vivo-sans-cn.css",
+    "generated/subset-manifest.json",
+    "vendor/vivo-sans/LICENCE-vivo-Sans.txt",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {},
+  "private": false
+}
