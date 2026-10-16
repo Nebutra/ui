@@ -1,0 +1,35 @@
+// src/components/Warning.tsx
+import { forwardRef } from "react";
+import { jsx } from "react/jsx-runtime";
+var Warning = /* @__PURE__ */ Object.assign(
+  forwardRef(({ size = 16, width, height, ...props }, ref) => /* @__PURE__ */ jsx(
+    "svg",
+    {
+      "aria-hidden": "true",
+      xmlns: "http://www.w3.org/2000/svg",
+      width: width ?? size,
+      height: height ?? size,
+      fill: "none",
+      strokeLinejoin: "round",
+      viewBox: "0 0 16 16",
+      ref,
+      ...props,
+      children: /* @__PURE__ */ jsx(
+        "path",
+        {
+          fill: "currentColor",
+          fillRule: "evenodd",
+          d: "M8.558 2H7.441L1.89 13.5h12.22zm1.351-.652A1.5 1.5 0 0 0 8.56.5H7.44a1.5 1.5 0 0 0-1.35.848L.193 13.565a1 1 0 0 0 .9 1.435h13.814a1 1 0 0 0 .9-1.435zM8.75 4.75v4h-1.5v-4zM8 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2",
+          clipRule: "evenodd"
+        }
+      )
+    }
+  )),
+  { displayName: "Warning" }
+);
+var Warning_default = Warning;
+
+export {
+  Warning,
+  Warning_default
+};
