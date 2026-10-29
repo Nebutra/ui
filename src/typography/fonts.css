@@ -1,0 +1,53 @@
+/**
+ * Font rules — the typography BEHAVIOUR layer (which element gets which stack).
+ * The STACKS themselves are owned by @nebutra/tokens, generated from
+ * packages/design/design-tokens/tokens/core.json → fontFamily.*.
+ *
+ * Font loading: ONE module. Next apps put `fontClassName` from
+ * @nebutra/tokens/fonts on <html> and render its <FontFaces /> once; Vite and
+ * Storybook import @nebutra/tokens/fonts.css. Nothing else declares a face
+ * (scripts/lint-font-pipeline.mjs).
+ *
+ * IMPORT ORDER MATTERS: this file must come AFTER @nebutra/tokens/styles.css
+ * (see ../styles/preset.css). It used to re-declare --font-sans / --font-heading /
+ * --font-mono here as Geist-only literals; being the later import, those copies
+ * won, and the CJK half of every token stack was silently discarded. Declare
+ * stacks in the tokens, never here.
+ */
+
+/* ============================================
+   CSS Custom Properties — derived aliases only
+   ============================================ */
+
+:root {
+  /* Legacy alias for the body/UI stack — the stack lives in the tokens. */
+  --font-primary: var(--font-sans);
+
+  /* CJK — appended as a fallback on the rules below (see the note there). The
+     token already leads with the self-hosted face; the system families repeat
+     here so this alias still degrades on its own. */
+  --font-cjk:
+    var(--font-cn), "MiSans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+
+  /* Not a token: no Nebutra surface uses a serif, this exists for shadcn parity. */
+  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* Smoothing, rendering, the body / heading / code faces and OpenType features
+   live in ONE sheet: @nebutra/design-tokens static/base.css, shipped inside
+   @nebutra/tokens/styles.css. This file used to restate them unlayered, so
+   apps that imported it rendered differently from apps that did not
+   (2026-10-16 audit). Only the derived aliases above remain here. */
+
+/* ============================================
+   Font Feature Settings
+   ============================================ */
+
+/* `.tabular-nums` is Tailwind's (font-variant-numeric). The copy that lived
+   here set font-feature-settings, which REPLACED the body's feature list on
+   every element that carried it. */
+
+/* Enable case-sensitive forms for all-caps text */
+.case-sensitive {
+  font-feature-settings: "case" 1;
+}

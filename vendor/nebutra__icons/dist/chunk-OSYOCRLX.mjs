@@ -1,0 +1,46 @@
+// src/components/FaceSmile.tsx
+import { forwardRef } from "react";
+import { jsx, jsxs } from "react/jsx-runtime";
+var FaceSmile = /* @__PURE__ */ Object.assign(
+  forwardRef(({ size = 16, width, height, ...props }, ref) => /* @__PURE__ */ jsxs(
+    "svg",
+    {
+      "aria-hidden": "true",
+      xmlns: "http://www.w3.org/2000/svg",
+      width: width ?? size,
+      height: height ?? size,
+      fill: "none",
+      strokeLinejoin: "round",
+      viewBox: "0 0 16 16",
+      ref,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsx(
+          "path",
+          {
+            fill: "currentColor",
+            fillRule: "evenodd",
+            d: "M14.5 8a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-11.5.975h-.625V9.6c0 1.875 1.935 3.264 4.123 3.264 2.19 0 4.127-1.38 4.127-3.264v-.625H4.5m3.498 2.639c-1.404 0-2.36-.666-2.717-1.389h5.44c-.357.725-1.313 1.389-2.723 1.389",
+            clipRule: "evenodd"
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "path",
+          {
+            fill: "var(--ds-amber-900)",
+            fillRule: "evenodd",
+            d: "M6.153 4.92 5.375 3.5l-.778 1.42L3 5.22l1.116 1.176L3.907 8l1.468-.694L6.843 8l-.21-1.605L7.75 5.219zm5.25 0-.778-1.42-.778 1.42-1.597.299 1.116 1.176L9.157 8l1.468-.694L12.093 8l-.21-1.605L13 5.219z",
+            clipRule: "evenodd"
+          }
+        )
+      ]
+    }
+  )),
+  { displayName: "FaceSmile" }
+);
+var FaceSmile_default = FaceSmile;
+
+export {
+  FaceSmile,
+  FaceSmile_default
+};

@@ -1,0 +1,33 @@
+// src/components/LogoReflag.tsx
+import { forwardRef } from "react";
+import { jsx } from "react/jsx-runtime";
+var LogoReflag = /* @__PURE__ */ Object.assign(
+  forwardRef(({ size = 16, width, height, ...props }, ref) => /* @__PURE__ */ jsx(
+    "svg",
+    {
+      "aria-hidden": "true",
+      xmlns: "http://www.w3.org/2000/svg",
+      width: width ?? size,
+      height: height ?? size,
+      fill: "none",
+      strokeLinejoin: "round",
+      viewBox: "0 0 16 16",
+      ref,
+      ...props,
+      children: /* @__PURE__ */ jsx(
+        "path",
+        {
+          fill: "currentColor",
+          d: "M13.833 1C14.478 1 15 1.522 15 2.167v11.666c0 .645-.522 1.167-1.167 1.167H2.167A1.167 1.167 0 0 1 1 13.833V2.167C1 1.522 1.522 1 2.167 1zM2.167 2.167v11.666L13.833 2.167z"
+        }
+      )
+    }
+  )),
+  { displayName: "LogoReflag" }
+);
+var LogoReflag_default = LogoReflag;
+
+export {
+  LogoReflag,
+  LogoReflag_default
+};

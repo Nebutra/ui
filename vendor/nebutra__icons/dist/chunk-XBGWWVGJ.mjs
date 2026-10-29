@@ -1,0 +1,51 @@
+// src/components/StopwatchUnread.tsx
+import { forwardRef } from "react";
+import { jsx, jsxs } from "react/jsx-runtime";
+var StopwatchUnread = /* @__PURE__ */ Object.assign(
+  forwardRef(({ size = 16, width, height, ...props }, ref) => /* @__PURE__ */ jsxs(
+    "svg",
+    {
+      "aria-hidden": "true",
+      xmlns: "http://www.w3.org/2000/svg",
+      width: width ?? size,
+      height: height ?? size,
+      fill: "none",
+      strokeLinejoin: "round",
+      viewBox: "0 0 16 16",
+      ref,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxs("g", { clipPath: "url(#clip0_4759_1908)", children: [
+          /* @__PURE__ */ jsx("circle", { cx: 13.5, cy: 2.5, r: 2.5, fill: "var(--ds-blue-900)" }),
+          /* @__PURE__ */ jsx(
+            "path",
+            {
+              fill: "currentColor",
+              fillRule: "evenodd",
+              d: "M10 .562V-.25H6v1.5h1.25v.79a6.97 6.97 0 0 0-3.641 1.508L3.03 2.97l-.53-.53L1.44 3.5l.53.53.578.579a7 7 0 1 0 11.943 1.767 4 4 0 0 1-1.616.075 5.5 5.5 0 1 1-3.17-2.682 4 4 0 0 1-.191-1.605 7 7 0 0 0-.764-.124v-.79h.95q.118-.36.3-.688M8.75 6v3.75h-1.5V6z",
+              clipRule: "evenodd"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsx("defs", { children: /* @__PURE__ */ jsx("clipPath", { id: "clip0_4759_1908", children: /* @__PURE__ */ jsx(
+          "path",
+          {
+            fill: "#fff",
+            d: "M0 0h16v16H0z",
+            style: {
+              fill: "#fff",
+              fillOpacity: 1
+            }
+          }
+        ) }) })
+      ]
+    }
+  )),
+  { displayName: "StopwatchUnread" }
+);
+var StopwatchUnread_default = StopwatchUnread;
+
+export {
+  StopwatchUnread,
+  StopwatchUnread_default
+};

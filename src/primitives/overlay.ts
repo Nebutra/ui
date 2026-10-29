@@ -1,0 +1,86 @@
+/**
+ * Canonical primitive overlay classes.
+ *
+ * Keep overlay surface, focus, and menu item decisions here so Dialog, Popover,
+ * Command, and menu-family primitives do not drift back to shadcn-style inline
+ * shadow/radius/ring classes.
+ */
+
+// Menu rows highlight instantly: they are hovered/keyboard-walked dozens of
+// times a minute, where a colour fade reads as lag.
+const menuItemBaseClassName = [
+  "relative flex cursor-default select-none items-center rounded-[var(--radius-sm)] px-2 py-1.5 text-sm",
+  "outline-none",
+  "data-[disabled]:pointer-events-none data-[disabled]:opacity-60",
+].join(" ");
+
+const menuHighlightedClassName =
+  "data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground";
+
+const menubarFocusClassName =
+  "hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground";
+
+export const overlayPrimitiveClassNames = {
+  // These three are merged AFTER tokens/components/overlay.ts and used to
+  // override it: the dialog came out at a 6px radius (token: --radius-xl),
+  // 95% see-through with no blur, and its hairline edge was replaced by
+  // shadow-xl; popover and menus dropped to 6px while Select's list was 12px.
+  // The surface is the token's to decide. Kept as keys for API compatibility.
+  modalSurface: "text-popover-foreground",
+  popoverSurface: "",
+  menuSurface: "",
+  commandFrame: "rounded-[var(--radius-md)] bg-popover text-popover-foreground",
+  commandDialogSurface: "overflow-hidden p-0",
+  commandItem: [
+    menuItemBaseClassName,
+    "data-[selected='true']:bg-accent data-[selected=true]:text-accent-foreground",
+    "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
+  ].join(" "),
+  contextMenuItem: [
+    menuItemBaseClassName,
+    "min-h-8 gap-2",
+    menuHighlightedClassName,
+    "data-[variant=destructive]:text-destructive-strong",
+    "data-[variant=destructive]:data-[highlighted]:bg-destructive/10",
+    "data-[variant=destructive]:data-[highlighted]:text-destructive-strong",
+  ].join(" "),
+  menuItem: [menuItemBaseClassName, menuHighlightedClassName].join(" "),
+  menuSubTrigger: [
+    menuItemBaseClassName,
+    "data-[highlighted]:bg-accent data-[popup-open]:bg-accent",
+  ].join(" "),
+  menuCheckboxItem: [menuItemBaseClassName, menuHighlightedClassName, "ps-8"].join(" "),
+  menuFilterInput: [
+    "h-7 w-full rounded-[var(--radius-sm)] bg-muted px-2 text-sm text-foreground",
+    "placeholder:text-muted-foreground outline-none",
+  ].join(" "),
+  menuEmpty: "px-2 py-3 text-center text-sm text-muted-foreground",
+  menuIndicator:
+    "pointer-events-none absolute start-2 flex size-3.5 items-center justify-center text-muted-foreground",
+  menubarRoot:
+    "flex h-10 items-center space-x-1 rounded-[var(--radius-md)] border border-border bg-background p-1 outline-none",
+  menubarTrigger: [
+    "flex cursor-default select-none items-center rounded-[var(--radius-sm)] px-3 py-1.5 text-sm font-medium",
+    "outline-none transition-colors duration-micro ease-out",
+    menubarFocusClassName,
+    "data-[state=open]:bg-accent data-[state=open]:text-accent-foreground",
+  ].join(" "),
+  menubarSubTrigger: [
+    "flex cursor-default select-none items-center rounded-[var(--radius-sm)] px-2 py-1.5 text-sm",
+    "outline-none",
+    menubarFocusClassName,
+    "data-[state=open]:bg-accent data-[state=open]:text-accent-foreground",
+  ].join(" "),
+  menubarItem: [
+    "relative flex cursor-default select-none items-center rounded-[var(--radius-sm)] px-2 py-1.5 text-sm",
+    "outline-none",
+    menubarFocusClassName,
+    "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+  ].join(" "),
+  menubarCheckboxItem: [
+    "relative flex cursor-default select-none items-center rounded-[var(--radius-sm)] py-1.5 ps-8 pe-2 text-sm",
+    "outline-none",
+    menubarFocusClassName,
+    "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+  ].join(" "),
+} as const;
